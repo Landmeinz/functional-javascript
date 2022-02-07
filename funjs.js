@@ -172,12 +172,27 @@ console.log('--- fizzBuzz list:', fizzBuzz()); // fizzBuzz === should be [fizzbu
 // Inline callback function
 // reduce(function(previousValue, currentValue, currentIndex, array) 
 
-const array = [15, 16, 17, 18, 19]
 
-function reducer(previous, current, index=0, wholes) {
+function reducer(previous, current, index, wholes) {
   const sum = previous + current;
   console.log(`previous: ${previous}, current: ${current}, index: ${index}, sum: ${sum}`);
   return sum;
 }
-
 console.log('--- sum', wholes.reduce(reducer));
+
+
+let sum2 = wholes.reduce((partialSum, a) => {
+    return partialSum + a
+})
+console.log('--- sum2', sum2);
+// console.log('--- sum', wholes.reduce(reducer));
+
+function indexMe(index){
+    console.log('index', index);
+    return index
+}
+
+wholes = [6, 3, 2, 8, 4, 1, 5, 7, 8, 9, 10, 15]
+
+console.log(wholes.map((n, index) => ({index, 'result': (n*1.25)}) ));
+
